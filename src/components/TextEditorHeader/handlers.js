@@ -15,9 +15,20 @@ export function handleTextStyling() {
 }
 
 export function handleNewPageCreation() {
-  const sheetsContainerEl = document.getElementById('sheets-container')
-  const newPageEl = document.createElement('div')
-  newPageEl.contentEditable = true
-  newPageEl.classList.add('page')
-  sheetsContainerEl.appendChild(newPageEl)
+  const SheetsContainerEl = document.getElementById('sheets-container')
+  const NewPageEl = document.createElement('div')
+  NewPageEl.contentEditable = true
+  const pageCount = SheetsContainerEl.childElementCount
+  NewPageEl.id = `offset-${pageCount}`
+  NewPageEl.classList.add('page')
+  SheetsContainerEl.appendChild(NewPageEl)
+}
+
+export function handlePageCount(event) {
+  const value = event.target.value
+  location.href = location.origin + '#offset-' + value
+}
+
+export function handleCountLimit() {
+  this.value = this.value.slice(0, 2)
 }

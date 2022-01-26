@@ -1,5 +1,5 @@
 import './style.scss'
-import { handleTextStyling, handleNewPageCreation } from './handlers'
+import { handleTextStyling, handleNewPageCreation, handlePageCount, handleCountLimit } from './handlers'
 
 const HeaderContainerEl = document.getElementById('header-container')
 
@@ -34,10 +34,19 @@ dataElements.forEach((el) => {
   TextEditorHeaderEl.appendChild(ButtonEl)
 })
 
-const AddPageButton = document.createElement('button')
-AddPageButton.classList.add('add-page-btn')
-AddPageButton.innerText = '+'
-AddPageButton.onclick = handleNewPageCreation
+const AddPageButtonEl = document.createElement('button')
+AddPageButtonEl.classList.add('add-sheet-btn')
+AddPageButtonEl.innerText = '+'
+AddPageButtonEl.onclick = handleNewPageCreation
+
+const PageCountEl = document.createElement('input')
+PageCountEl.type = 'number'
+PageCountEl.min = 0
+PageCountEl.value = 1
+PageCountEl.classList.add('offset-sheet-input')
+PageCountEl.onchange = handlePageCount
+PageCountEl.oninput = handleCountLimit
 
 HeaderContainerEl.appendChild(TextEditorHeaderEl)
-HeaderContainerEl.appendChild(AddPageButton)
+HeaderContainerEl.appendChild(AddPageButtonEl)
+HeaderContainerEl.appendChild(PageCountEl)

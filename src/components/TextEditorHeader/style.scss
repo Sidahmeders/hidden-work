@@ -28,7 +28,7 @@
     }
   }
 
-  .add-page-btn {
+  .add-sheet-btn {
     position: fixed;
     top: 8%;
     right: 3%;
@@ -44,4 +44,18 @@
       background: #71f787;
     }
   }
+}
+
+.offset-sheet-input {
+  position: fixed;
+  top: 22%;
+  right: 3%;
+  width: 42px;
+  height: 42px;
+  background: #e6f3d4;
+  border-radius: 50%;
+  border: none;
+  font-size: 17px;
+  outline: none;
+  text-align: center;
 }
