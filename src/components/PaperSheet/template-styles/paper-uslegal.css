@@ -1,6 +1,6 @@
 @import './sheets-of-paper.scss';
 
-.page {
+.page.usLegal {
   width: 21.6cm;
   min-height: 35.6cm;
   padding-left: 2cm;

@@ -1,8 +1,9 @@
+import { selectedSheetStyle } from './_state'
 import { handleNewPageCreation } from './_handlers'
 
 const AddPageButtonEl = document.createElement('button')
-AddPageButtonEl.classList.add('add-page-btn')
+AddPageButtonEl.className = 'add-page-btn'
 AddPageButtonEl.innerText = '+'
-AddPageButtonEl.onclick = handleNewPageCreation
+AddPageButtonEl.onclick = (event) => handleNewPageCreation(event, selectedSheetStyle)
 
 export default AddPageButtonEl

@@ -1,6 +1,6 @@
 @import './sheets-of-paper.scss';
 
-.page {
+.page.a3Sheet {
   width: 29.7cm;
   min-height: 42cm;
 

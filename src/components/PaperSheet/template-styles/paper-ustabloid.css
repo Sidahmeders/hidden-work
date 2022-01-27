@@ -1,6 +1,6 @@
 @import './sheets-of-paper.scss';
 
-.page {
+.page.usTablois {
   width: 27.9cm;
   min-height: 43.2cm;
   padding-left: 2cm;

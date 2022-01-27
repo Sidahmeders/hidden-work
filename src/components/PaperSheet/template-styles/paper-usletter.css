@@ -1,6 +1,6 @@
 @import './sheets-of-paper.scss';
 
-.page {
+.page.usLetter {
   width: 21.6cm;
   min-height: 27.9cm;
   padding-left: 2cm;

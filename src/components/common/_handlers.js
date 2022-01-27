@@ -14,13 +14,13 @@ export function handleTextStyling() {
   } else document.execCommand(command, false, null)
 }
 
-export function handleNewPageCreation() {
+export function handleNewPageCreation(event, sheetStyle) {
   const SheetsContainerEl = document.getElementById('sheets-container')
   const NewPageEl = document.createElement('div')
   NewPageEl.contentEditable = true
   const pageCount = SheetsContainerEl.childElementCount
   NewPageEl.id = `offset-${pageCount}`
-  NewPageEl.classList.add('page')
+  NewPageEl.classList.add('page', sheetStyle)
   SheetsContainerEl.appendChild(NewPageEl)
 }
 
@@ -31,4 +31,14 @@ export function handlePageCount(event) {
 
 export function handleCountLimit() {
   this.value = this.value.slice(0, 2)
+}
+
+export function handleSheetStyle() {
+  const PaperSheetsCollection = document.getElementsByClassName('page')
+  const selectedOption = this.options[this.selectedIndex].text
+
+  for (let SheetEl of PaperSheetsCollection) {
+    SheetEl.classList.remove(...SheetEl.classList)
+    SheetEl.classList.add('page', selectedOption)
+  }
 }

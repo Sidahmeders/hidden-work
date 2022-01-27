@@ -1,7 +1,7 @@
 import { handlePageCount, handleCountLimit } from './_handlers'
 
 const PageOffsetEl = document.createElement('input')
-PageOffsetEl.classList.add('page-offset')
+PageOffsetEl.className = 'page-offset'
 PageOffsetEl.type = 'number'
 PageOffsetEl.min = 0
 PageOffsetEl.value = 1

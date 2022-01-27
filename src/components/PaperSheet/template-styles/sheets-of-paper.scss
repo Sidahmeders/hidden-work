@@ -82,11 +82,6 @@ table {
   page-break-inside: avoid;
 }
 
-@page {
-  orphans: 4;
-  widows: 2;
-}
-
 @media print {
   #sheets-container {
     background: #fff;

@@ -1,11 +1,11 @@
-const SelectSheetTemplateEl = document.createElement('select')
-SelectSheetTemplateEl.classList.add('select-sheet-style')
-SelectSheetTemplateEl.onchange = function () {
-  // const selectedOption = this.options[this.selectedIndex].text
-  // Templates[selectedOption]
-}
+import '../PaperSheet/template-styles/sheet-templates'
+import { sheetOptions } from './_state'
+import { handleSheetStyle } from './_handlers'
 
-const sheetOptions = ['a3Sheet', 'a4Sheet', 'usLegalSheet', 'usLetter', 'usTablois']
+const SelectSheetTemplateEl = document.createElement('select')
+SelectSheetTemplateEl.className = 'select-sheet-style'
+SelectSheetTemplateEl.onchange = handleSheetStyle
+
 for (let i = 0; i < sheetOptions.length; i++) {
   const option = sheetOptions[i]
   const SheetTemplateOption = document.createElement('option')

@@ -1,2 +1,2 @@
-import './components/TextEditorHeader/index.js'
+import './components/TextEditorHeader'
 import './components/PaperSheet/index.js'
