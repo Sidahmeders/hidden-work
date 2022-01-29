@@ -1,2 +1,3 @@
 import './components/TextEditorHeader'
-import './components/PaperSheet/index.js'
+import './components/chapter-sidebar'
+import './components/PaperSheet'

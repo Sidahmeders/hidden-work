@@ -1,4 +1,4 @@
-import SelectSheetTemplateEl from '../common/SelectSheetStyle'
+import SelectSheetTemplateEl from '../common/SelectSheetStyleEl'
 import PageOffsetEl from '../common/PageOffsetEl'
 
 const HeaderContainerEl = document.getElementById('header-container')
