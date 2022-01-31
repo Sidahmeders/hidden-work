@@ -1,3 +1,5 @@
+// import store from '../../utils/store'
+
 export function handleTextStyling() {
   /**  FIXME:
    * As of 2022 The execCommand() is officially obsolete/deprecated but there's no alternative. and for a rich text support,
