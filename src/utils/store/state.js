@@ -1,9 +1,11 @@
+import { stateKeys } from './_types'
+
 export default {
-  items: ['I made this', 'Another thing'],
-  selectedSheetStyle: 'a3Sheet',
-  sheetOptions: ['a3Sheet', 'a4Sheet', 'usLegal', 'usLetter', 'usTablois'],
+  [stateKeys.items]: ['I made this', 'Another thing'],
+  [stateKeys.selectedSheetStyle]: 'a3Sheet',
+  [stateKeys.sheetOptions]: ['a3Sheet', 'a4Sheet', 'usLegal', 'usLetter', 'usTablois'],
   // TODO: Replace the FontAwsome CDN icon links with local cached icons for offline use
-  headerActions: [
+  [stateKeys.headerActions]: [
     { command: 'bold', class: 'fa-bold' },
     { command: 'italic', class: 'fa-italic' },
     { command: 'underline', class: 'fa-underline' },

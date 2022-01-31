@@ -1,4 +1,4 @@
-import { actionsKeys } from './types'
+import { actionsKeys } from './_types'
 
 function addItem(context, payload) {
   context.commit(actionsKeys.addItem, payload)
