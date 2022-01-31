@@ -1,18 +1,10 @@
 import '../PaperSheet/template-styles/sheet-templates'
-import { sheetOptions } from './_state'
-import { handleSheetStyle } from './_handlers'
+import { handleSheetStyle, createSheetOptionsElement } from './_handlers'
 
 const SelectSheetTemplateEl = document.createElement('select')
 SelectSheetTemplateEl.className = 'select-sheet-style'
 SelectSheetTemplateEl.onchange = handleSheetStyle
 
-for (let i = 0; i < sheetOptions.length; i++) {
-  const option = sheetOptions[i]
-  const SheetTemplateOption = document.createElement('option')
-  SheetTemplateOption.innerText = option
-  SheetTemplateOption.selected = i === 0 ? true : false
-
-  SelectSheetTemplateEl.appendChild(SheetTemplateOption)
-}
+createSheetOptionsElement(SelectSheetTemplateEl)
 
 export default SelectSheetTemplateEl

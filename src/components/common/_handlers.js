@@ -1,6 +1,21 @@
-// import store from '../../utils/store'
+import store from '../../utils/store'
 
-export function handleTextStyling() {
+export function initHeaderElements(TextEditorHeaderEl) {
+  store.state.headerActions.forEach((el) => {
+    const ButtonEl = document.createElement('button')
+    ButtonEl.className = 'marker-btn'
+    ButtonEl.setAttribute('data-element', el.command)
+    ButtonEl.onclick = handleTextStyling
+
+    const IconTagEl = document.createElement('i')
+    IconTagEl.classList.add('fa', el.class)
+
+    ButtonEl.appendChild(IconTagEl)
+    TextEditorHeaderEl.appendChild(ButtonEl)
+  })
+}
+
+function handleTextStyling() {
   /**  FIXME:
    * As of 2022 The execCommand() is officially obsolete/deprecated but there's no alternative. and for a rich text support,
    * we need to keep using execCommand() and figure out what actually works with browsers that we want to support.
@@ -16,7 +31,21 @@ export function handleTextStyling() {
   } else document.execCommand(command, false, null)
 }
 
-export function handleNewPageCreation(event, sheetStyle) {
+export function createSheetOptionsElement(SelectSheetTemplateEl) {
+  const sheetOptions = store.state.sheetOptions
+  for (let i = 0; i < sheetOptions.length; i++) {
+    const option = sheetOptions[i]
+    const SheetTemplateOption = document.createElement('option')
+    SheetTemplateOption.innerText = option
+    SheetTemplateOption.selected = i === 0 ? true : false
+
+    SelectSheetTemplateEl.appendChild(SheetTemplateOption)
+  }
+}
+
+export function handleNewPageCreation() {
+  const sheetStyle = store.state.selectedSheetStyle
+
   const SheetsContainerEl = document.getElementById('sheets-container')
   const NewPageEl = document.createElement('div')
   NewPageEl.contentEditable = true
@@ -36,9 +65,10 @@ export function handleCountLimit() {
 }
 
 export function handleSheetStyle() {
-  const PaperSheetsCollection = document.getElementsByClassName('page')
   const selectedOption = this.options[this.selectedIndex].text
+  store.dispatch('setSheetStyle', selectedOption)
 
+  const PaperSheetsCollection = document.getElementsByClassName('page')
   for (let SheetEl of PaperSheetsCollection) {
     SheetEl.classList.remove(...SheetEl.classList)
     SheetEl.classList.add('page', selectedOption)

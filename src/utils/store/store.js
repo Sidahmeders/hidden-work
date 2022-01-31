@@ -20,9 +20,9 @@ export default class Store {
     }
 
     self.state = new Proxy(params.state || {}, self.proxyTrap)
+    self.events = new PubSub()
     self.actions = {}
     self.mutations = {}
-    self.events = new PubSub()
     self.status = 'resting'
 
     if (Object.prototype.hasOwnProperty.call(params, 'actions')) {
