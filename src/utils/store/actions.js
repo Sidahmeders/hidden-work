@@ -1,13 +1,15 @@
+import { actionsKeys } from './types'
+
 function addItem(context, payload) {
-  context.commit('addItem', payload)
+  context.commit(actionsKeys.addItem, payload)
 }
 
 function clearItem(context, payload) {
-  context.commit('clearItem', payload)
+  context.commit(actionsKeys.clearItem, payload)
 }
 
 function setSheetStyle(context, payload) {
-  context.commit('setSheetStyle', payload)
+  context.commit(actionsKeys.setSheetStyle, payload)
 }
 
 export default { addItem, clearItem, setSheetStyle }

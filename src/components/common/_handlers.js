@@ -1,7 +1,7 @@
-import store from '../../utils/store'
+import { dispatch, _state } from '../../utils/store/'
 
 export function initHeaderElements(TextEditorHeaderEl) {
-  store.state.headerActions.forEach((el) => {
+  _state.headerActions.forEach((el) => {
     const ButtonEl = document.createElement('button')
     ButtonEl.className = 'marker-btn'
     ButtonEl.setAttribute('data-element', el.command)
@@ -32,7 +32,8 @@ function handleTextStyling() {
 }
 
 export function createSheetOptionsElement(SelectSheetTemplateEl) {
-  const sheetOptions = store.state.sheetOptions
+  const sheetOptions = _state.sheetOptions
+
   for (let i = 0; i < sheetOptions.length; i++) {
     const option = sheetOptions[i]
     const SheetTemplateOption = document.createElement('option')
@@ -44,7 +45,7 @@ export function createSheetOptionsElement(SelectSheetTemplateEl) {
 }
 
 export function handleNewPageCreation() {
-  const sheetStyle = store.state.selectedSheetStyle
+  const sheetStyle = _state.selectedSheetStyle
 
   const SheetsContainerEl = document.getElementById('sheets-container')
   const NewPageEl = document.createElement('div')
@@ -66,7 +67,7 @@ export function handleCountLimit() {
 
 export function handleSheetStyle() {
   const selectedOption = this.options[this.selectedIndex].text
-  store.dispatch('setSheetStyle', selectedOption)
+  dispatch.setSheetStyle(selectedOption)
 
   const PaperSheetsCollection = document.getElementsByClassName('page')
   for (let SheetEl of PaperSheetsCollection) {
