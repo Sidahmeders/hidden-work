@@ -1,5 +1,5 @@
 import './template-styles/sheet-templates'
-import { dispatch } from '../../../utils/store'
+import { dispatch } from '../../../../utils/store'
 
 const SelectSheetTemplateEl = document.createElement('select')
 SelectSheetTemplateEl.id = 'select-sheet-style'

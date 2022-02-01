@@ -1,4 +1,4 @@
-import { _state } from '../../utils/store'
+import { _state } from '../../../utils/store'
 
 const AddPageButtonEl = document.createElement('button')
 AddPageButtonEl.id = 'add-page-btn'

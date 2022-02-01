@@ -1,6 +1,6 @@
-import './common/_styles.scss'
-import TextEditorMarkersEl from './common/TextEditorMarkersEl'
-import SheetReflowBtnContainerEl from './common/SheetReflowBtnContainerEl'
+import './_styles.scss'
+import TextEditorMarkersEl from './TextEditorMarkersEl'
+import SheetReflowBtnContainerEl from './SheetReflowBtnsContainerEl'
 
 const HeaderContainerEl = document.getElementById('header-container')
 
