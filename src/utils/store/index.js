@@ -21,8 +21,8 @@ const _state = {
   selectedSheetStyle: () => store.state[stateKeys.selectedSheetStyle],
 }
 
-const subscriber = function (event, callback) {
-  store.events.subscribe(event || 'stateChange', callback || function () {})
+const subscriber = (event, callback) => {
+  store.events.subscribe(event, callback || function () {})
 }
 
 export { dispatch, _state, subscriber }

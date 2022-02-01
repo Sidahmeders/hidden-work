@@ -42,10 +42,8 @@ export default class Store {
       return false
     }
 
-    console.groupCollapsed(`ACTION: ${actionKey}`)
     self.status = 'action'
     self.actions[actionKey](self, payload)
-    console.groupEnd()
 
     return true
   }
@@ -61,6 +59,7 @@ export default class Store {
     self.status = 'mutation'
     let newState = self.mutations[mutationKey](self.state, payload)
     self.state = Object.assign(self.state, newState)
+    localStorage.setItem('state', JSON.stringify(self.state))
 
     return true
   }
