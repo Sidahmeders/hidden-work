@@ -17,8 +17,8 @@ const dispatch = {
 }
 
 const _state = {
-  items: store.state[stateKeys.items],
-  selectedSheetStyle: store.state[stateKeys.selectedSheetStyle],
+  items: () => store.state[stateKeys.items],
+  selectedSheetStyle: () => store.state[stateKeys.selectedSheetStyle],
 }
 
 const subscriber = function (event, callback) {
