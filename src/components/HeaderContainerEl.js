@@ -8,6 +8,5 @@ const HeaderContainerEl = document.getElementById('header-container')
 
 HeaderContainerEl.appendChild(TextEditorHeaderEl)
 HeaderContainerEl.appendChild(AddPageButtonEl)
-
 HeaderContainerEl.appendChild(PageOffsetEl)
 HeaderContainerEl.appendChild(SelectSheetTemplateEl)

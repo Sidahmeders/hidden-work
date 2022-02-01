@@ -1,4 +1,4 @@
-.text-editor-header {
+#text-editor-header {
   position: fixed;
   top: 0;
   display: flex;
@@ -38,25 +38,24 @@
 
 .page-offset {
   position: fixed;
-  top: 22%;
+  top: 0;
   right: 3%;
-  width: 42px;
-  height: 42px;
-  background: #e6f3d4;
+  width: 34px;
+  height: 34px;
+  background: #ffffff;
   border-radius: 50%;
   border: none;
-  font-size: 17px;
   outline: none;
   text-align: center;
 }
 
 .add-page-btn {
   position: fixed;
-  top: 8%;
-  right: 3%;
+  top: 0%;
+  right: 6%;
   font-size: 32px;
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   background: white;
   border: none;
   border-radius: 50%;

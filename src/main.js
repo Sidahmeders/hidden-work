@@ -1,2 +1,2 @@
-import './components/TextEditorHeader'
+import './components/HeaderContainerEl'
 import './components/chapter-sidebar'

@@ -17,7 +17,7 @@ const headerActions = [
 ]
 
 const TextEditorHeaderEl = document.createElement('div')
-TextEditorHeaderEl.classList.add('text-editor-header')
+TextEditorHeaderEl.id = 'text-editor-header'
 
 headerActions.forEach((el) => {
   const ButtonEl = document.createElement('button')
