@@ -1,7 +1,7 @@
 import { _state } from '../../utils/store'
 
 const AddPageButtonEl = document.createElement('button')
-AddPageButtonEl.className = 'add-page-btn'
+AddPageButtonEl.id = 'add-page-btn'
 AddPageButtonEl.innerText = '+'
 AddPageButtonEl.onclick = handleNewPageCreation
 
