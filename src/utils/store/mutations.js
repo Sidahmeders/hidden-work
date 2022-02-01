@@ -1,12 +1,7 @@
 import { stateKeys } from './_types'
 
-function addItem(state, payload) {
-  state[stateKeys.items].push(payload)
-  return state
-}
-
-function clearItem(state, payload) {
-  state[stateKeys.items].splice(payload.index, 1)
+function setPagesCount(state, payload) {
+  state[stateKeys.pagesCount] = payload
   return state
 }
 
@@ -15,4 +10,4 @@ function setSheetStyle(state, payload) {
   return state
 }
 
-export default { addItem, clearItem, setSheetStyle }
+export default { setPagesCount, setSheetStyle }

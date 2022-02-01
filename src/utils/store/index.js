@@ -11,13 +11,12 @@ const store = new Store({
 })
 
 const dispatch = {
-  addItem: (payload) => store.dispatch(actionsKeys.addItem, payload),
-  clearItem: (payload) => store.dispatch(actionsKeys.clearItem, payload),
+  setPagesCount: (payload) => store.dispatch(actionsKeys.setPagesCount, payload),
   setSheetStyle: (payload) => store.dispatch(actionsKeys.setSheetStyle, payload),
 }
 
 const _state = {
-  items: () => store.state[stateKeys.items],
+  pagesCount: () => store.state[stateKeys.pagesCount],
   selectedSheetStyle: () => store.state[stateKeys.selectedSheetStyle],
 }
 

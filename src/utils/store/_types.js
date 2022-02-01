@@ -1,14 +1,11 @@
 const actionsKeys = {
-  addItem: 'addItem',
-  clearItem: 'clearItem',
+  setPagesCount: 'setPagesCount',
   setSheetStyle: 'setSheetStyle',
 }
 
 const stateKeys = {
-  items: 'items',
+  pagesCount: 'pagesCount',
   selectedSheetStyle: 'selectedSheetStyle',
-  sheetOptions: 'sheetOptions',
-  headerActions: 'headerActions',
 }
 
 export { actionsKeys, stateKeys }
