@@ -1,21 +1,6 @@
 import { dispatch, _state } from '../../utils/store/'
 
-export function initHeaderElements(TextEditorHeaderEl) {
-  _state.headerActions.forEach((el) => {
-    const ButtonEl = document.createElement('button')
-    ButtonEl.className = 'marker-btn'
-    ButtonEl.setAttribute('data-element', el.command)
-    ButtonEl.onclick = handleTextStyling
-
-    const IconTagEl = document.createElement('i')
-    IconTagEl.classList.add('fa', el.class)
-
-    ButtonEl.appendChild(IconTagEl)
-    TextEditorHeaderEl.appendChild(ButtonEl)
-  })
-}
-
-function handleTextStyling() {
+export function handleTextStyling() {
   /**  FIXME:
    * As of 2022 The execCommand() is officially obsolete/deprecated but there's no alternative. and for a rich text support,
    * we need to keep using execCommand() and figure out what actually works with browsers that we want to support.
@@ -29,19 +14,6 @@ function handleTextStyling() {
     let url = prompt('Enter the link here:') || ''
     document.execCommand(command, false, url)
   } else document.execCommand(command, false, null)
-}
-
-export function createSheetOptionsElement(SelectSheetTemplateEl) {
-  const sheetOptions = _state.sheetOptions
-
-  for (let i = 0; i < sheetOptions.length; i++) {
-    const option = sheetOptions[i]
-    const SheetTemplateOption = document.createElement('option')
-    SheetTemplateOption.innerText = option
-    SheetTemplateOption.selected = i === 0 ? true : false
-
-    SelectSheetTemplateEl.appendChild(SheetTemplateOption)
-  }
 }
 
 export function handleNewPageCreation() {
@@ -66,7 +38,8 @@ export function handleCountLimit() {
 }
 
 export function handleSheetStyle() {
-  const selectedOption = this.options[this.selectedIndex].text
+  const selectBoxEl = document.getElementById('select-sheet-style')
+  const selectedOption = selectBoxEl[selectBoxEl.selectedIndex].text
   dispatch.setSheetStyle(selectedOption)
 
   const PaperSheetsCollection = document.getElementsByClassName('page')

@@ -19,8 +19,10 @@ const dispatch = {
 const _state = {
   items: store.state[stateKeys.items],
   selectedSheetStyle: store.state[stateKeys.selectedSheetStyle],
-  sheetOptions: store.state[stateKeys.sheetOptions],
-  headerActions: store.state[stateKeys.headerActions],
 }
 
-export { dispatch, _state }
+const subscriber = function (event, callback) {
+  store.events.subscribe(event || 'stateChange', callback || function () {})
+}
+
+export { dispatch, _state, subscriber }
