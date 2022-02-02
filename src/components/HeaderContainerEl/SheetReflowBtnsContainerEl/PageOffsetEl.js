@@ -8,7 +8,9 @@ PageOffsetEl.onchange = handlePageCount
 PageOffsetEl.oninput = handleCountLimit
 
 function handlePageCount(event) {
-  const value = event.target.value
+  let value = event.target.value
+  value = value.split('/')[1]
+
   location.href = location.origin + '#offset-' + value
 }
 
