@@ -14,8 +14,8 @@ const headerActions = [
   { command: 'HiliteColor', class: 'fa-highlighter' },
 ]
 
-const TextEditorMarkersEl = document.createElement('div')
-TextEditorMarkersEl.id = 'text-editor-markers'
+const TextEditorMarkers = document.createElement('div')
+TextEditorMarkers.id = 'text-editor-markers'
 
 headerActions.forEach((el) => {
   const ButtonEl = document.createElement('button')
@@ -27,7 +27,7 @@ headerActions.forEach((el) => {
   IconTagEl.classList.add('fa', el.class)
 
   ButtonEl.appendChild(IconTagEl)
-  TextEditorMarkersEl.appendChild(ButtonEl)
+  TextEditorMarkers.appendChild(ButtonEl)
 })
 
 function handleTextStyling() {
@@ -46,4 +46,4 @@ function handleTextStyling() {
   } else document.execCommand(command, false, null)
 }
 
-export default TextEditorMarkersEl
+export default TextEditorMarkers

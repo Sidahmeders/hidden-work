@@ -1,8 +1,21 @@
 import './_styles.scss'
-import TextEditorMarkersEl from './TextEditorMarkersEl'
-import SheetReflowBtnContainerEl from './SheetReflowBtnsContainerEl'
+import TextEditorMarkers from './TextEditorMarkers'
 
-const HeaderContainerEl = document.getElementById('header-container')
+import AddPageButton from './SheetReflowBtnsContainer/AddPageButton'
+import PageOffset from './SheetReflowBtnsContainer/PageOffset'
+import SelectSheetTemplate from './SheetReflowBtnsContainer/SelectSheetTemplate'
 
-HeaderContainerEl.appendChild(TextEditorMarkersEl)
-HeaderContainerEl.appendChild(SheetReflowBtnContainerEl)
+const HeaderContainer = document.getElementById('header-container')
+const SheetReflowBtnsContainer = document.createElement('div')
+SheetReflowBtnsContainer.id = 'sheet-reflow-container'
+
+HeaderContainer.appendChild(TextEditorMarkers)
+HeaderContainer.appendChild(SheetReflowBtnsContainer)
+
+const SelectSheetTemplateInstance = new SelectSheetTemplate()
+const PageOffsetInstance = new PageOffset()
+const AddPageButtonInstance = new AddPageButton()
+
+SelectSheetTemplateInstance.render()
+PageOffsetInstance.render()
+AddPageButtonInstance.render()

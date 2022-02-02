@@ -1,8 +1,6 @@
-import { stateKeys } from './_types'
-
 const initialState = {
-  [stateKeys.pagesCount]: 0,
-  [stateKeys.selectedSheetStyle]: 'a3Sheet',
+  pagesCount: 0,
+  selectedSheetStyle: 'a3Sheet',
 }
 
 const state = JSON.parse(localStorage.getItem('state')) || initialState
