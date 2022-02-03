@@ -1,6 +1,6 @@
 import './template-styles/sheet-templates'
-import Component from '../../../utils/lib/component'
-import { dispatch, state } from '../../../utils/store'
+import Component from '../../utils/lib/component'
+import { dispatch, state } from '../../utils/store'
 
 class SelectSheetTemplate extends Component {
   constructor(store, parent) {
