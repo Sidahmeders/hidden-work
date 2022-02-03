@@ -20,11 +20,6 @@ class AddPageButton extends Component {
       NewPaperSheetInstance.render(state.pagesCount + 1)
       dispatch.setPagesCount(state.pagesCount + 1)
     }
-
-    let counter = 0
-    while (counter++ < state.pagesCount) {
-      NewPaperSheetInstance.render(counter)
-    }
   }
 }
 

@@ -12,6 +12,7 @@ class SelectSheetTemplate extends Component {
   }
 
   render() {
+    this.element.innerHTML = ''
     this.element.id = 'select-sheet-style'
     this.element.onchange = dispatch.setSheetStyle
 

@@ -27,4 +27,14 @@ class NewPaperSheet {
   }
 }
 
+document.addEventListener('DOMContentLoaded', renderExistingSheets)
+
+function renderExistingSheets() {
+  const NewPaperSheetInstance = new NewPaperSheet()
+  let counter = 0
+  while (counter++ < state.pagesCount) {
+    NewPaperSheetInstance.render(counter)
+  }
+}
+
 export default NewPaperSheet

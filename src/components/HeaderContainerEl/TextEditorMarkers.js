@@ -26,6 +26,7 @@ class TextEditorMarkers extends Component {
   }
 
   render() {
+    this.element.innerHTML = ''
     this.element.id = 'text-editor-markers'
 
     headerActions.forEach((el) => {
