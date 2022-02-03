@@ -1,4 +1,4 @@
-import { state } from '../utils/store'
+import { dispatch, state } from '../utils/store'
 
 class NewPaperSheet {
   constructor() {
@@ -6,15 +6,16 @@ class NewPaperSheet {
   }
 
   render(pageNumber) {
-    const NewPageEl = document.createElement('div')
+    const PaperSheet = document.createElement('div')
 
-    NewPageEl.id = `offset-${pageNumber}`
-    NewPageEl.classList.add('page', state.selectedSheetStyle)
-    NewPageEl.contentEditable = true
+    PaperSheet.id = `offset-${pageNumber}`
+    PaperSheet.classList.add('page', state.selectedSheetStyle)
+    PaperSheet.contentEditable = true
+    PaperSheet.onkeyup = (event) => savePageSheetText(event, pageNumber)
 
-    const PageNumberEl = document.createElement('div')
-    PageNumberEl.innerText = pageNumber
-    PageNumberEl.style = `
+    const PageNumber = document.createElement('div')
+    PageNumber.innerText = pageNumber
+    PageNumber.style = `
       position: absolute;
       left: 75%;
       padding: 4px 8px;
@@ -22,9 +23,17 @@ class NewPaperSheet {
       background: #fff;
     `
 
-    this.element.appendChild(PageNumberEl)
-    this.element.appendChild(NewPageEl)
+    this.element.appendChild(PageNumber)
+    this.element.appendChild(PaperSheet)
   }
+}
+
+function savePageSheetText(event, pageNumber) {
+  const editableDiv = event.target
+  let innerText = editableDiv.innerText
+  if (innerText[innerText.length - 1] === '\n') innerText = innerText.slice(0, -1)
+
+  dispatch.setSheetsScript({ pageNumber, sheetText: innerText })
 }
 
 document.addEventListener('DOMContentLoaded', renderExistingSheets)

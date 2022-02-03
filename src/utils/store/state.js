@@ -1,6 +1,9 @@
+import { stateKeys } from './_types'
+
 const initialState = {
-  pagesCount: 0,
-  selectedSheetStyle: 'a3Sheet',
+  [stateKeys.pagesCount]: 0,
+  [stateKeys.selectedSheetStyle]: 'a3Sheet',
+  [stateKeys.sheetsScriptsMap]: {},
 }
 
 const state = JSON.parse(localStorage.getItem('state')) || initialState

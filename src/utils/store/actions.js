@@ -13,8 +13,11 @@ function setSheetStyle(context) {
   for (let PaperSheetEl of PaperSheetsCollection) {
     PaperSheetEl.className = `page ${selectedOption}`
   }
-
   context.commit(actionsKeys.setSheetStyle, selectedOption)
 }
 
-export default { setPagesCount, setSheetStyle }
+function setSheetsScript(context, payload) {
+  context.commit(actionsKeys.setSheetsScript, payload)
+}
+
+export default { setPagesCount, setSheetStyle, setSheetsScript }

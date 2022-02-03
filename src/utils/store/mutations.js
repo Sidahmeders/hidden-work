@@ -10,4 +10,10 @@ function setSheetStyle(state, payload) {
   return state
 }
 
-export default { setPagesCount, setSheetStyle }
+function setSheetsScript(state, payload) {
+  const { pageNumber, sheetText } = payload
+  state[stateKeys.sheetsScriptsMap][pageNumber] = sheetText
+  return state
+}
+
+export default { setPagesCount, setSheetStyle, setSheetsScript }
