@@ -11,8 +11,8 @@ const store = new Store({
 })
 
 const dispatch = {
+  setSheetStyle: () => store.dispatch(actionsKeys.setSheetStyle),
   setPagesCount: (payload) => store.dispatch(actionsKeys.setPagesCount, payload),
-  setSheetStyle: (payload) => store.dispatch(actionsKeys.setSheetStyle, payload),
 }
 
-export { dispatch }
+export { store, dispatch, state }

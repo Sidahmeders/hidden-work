@@ -1,15 +1,14 @@
 import './template-styles/sheet-templates'
 import Component from '../../../utils/lib/component'
-import { dispatch } from '../../../utils/store'
+import { dispatch, state } from '../../../utils/store'
 
 class SelectSheetTemplate extends Component {
-  constructor(store, state, parent) {
+  constructor(store, parent) {
     super({
       store,
       parent,
       element: document.createElement('select'),
     })
-    this.state = state
   }
 
   render() {
@@ -22,7 +21,7 @@ class SelectSheetTemplate extends Component {
       const option = sheetOptions[i]
       const SheetOptionEl = document.createElement('option')
       SheetOptionEl.innerText = option
-      SheetOptionEl.selected = this.state.selectedSheetStyle === option ? true : false
+      SheetOptionEl.selected = state.selectedSheetStyle === option ? true : false
 
       this.element.appendChild(SheetOptionEl)
     }

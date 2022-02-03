@@ -1,6 +1,5 @@
 import './_styles.scss'
-import state from '../../utils/store/state'
-import Store from '../../utils/store/store'
+import { store } from '../../utils/store'
 
 import TextEditorMarkers from './TextEditorMarkers'
 import AddPageButton from './AddPageButton'
@@ -9,16 +8,16 @@ import SelectSheetTemplate from './SelectSheetTemplate'
 
 const HeaderContainer = document.getElementById('header-container')
 
-const TextEditorMarkersInstance = new TextEditorMarkers(Store, state, HeaderContainer)
+const TextEditorMarkersInstance = new TextEditorMarkers(store, HeaderContainer)
 TextEditorMarkersInstance.render()
 
 const SheetReflowBtnsContainer = document.createElement('div')
 SheetReflowBtnsContainer.id = 'sheet-reflow-container'
 HeaderContainer.appendChild(SheetReflowBtnsContainer)
 
-const SelectSheetTemplateInstance = new SelectSheetTemplate(Store, state, SheetReflowBtnsContainer)
-const PageOffsetInstance = new PageOffset(Store, state, SheetReflowBtnsContainer)
-const AddPageButtonInstance = new AddPageButton(Store, state, SheetReflowBtnsContainer)
+const SelectSheetTemplateInstance = new SelectSheetTemplate(store, SheetReflowBtnsContainer)
+const PageOffsetInstance = new PageOffset(store, SheetReflowBtnsContainer)
+const AddPageButtonInstance = new AddPageButton(store, SheetReflowBtnsContainer)
 
 SelectSheetTemplateInstance.render()
 PageOffsetInstance.render()

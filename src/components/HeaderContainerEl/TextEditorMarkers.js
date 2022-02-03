@@ -17,13 +17,12 @@ const headerActions = [
 ]
 
 class TextEditorMarkers extends Component {
-  constructor(store, state, parent) {
+  constructor(store, parent) {
     super({
       store,
       parent,
       element: document.createElement('div'),
     })
-    this.state = state
   }
 
   render() {
