@@ -21,13 +21,12 @@ class TextEditorMarkers extends Component {
     super({
       store,
       parent,
-      element: document.createElement('div'),
+      element: document.getElementById('text-editor-markers'),
     })
   }
 
   render() {
     this.element.innerHTML = ''
-    this.element.id = 'text-editor-markers'
 
     headerActions.forEach((el) => {
       const ButtonEl = document.createElement('button')
