@@ -1,4 +1,4 @@
-import state from '../utils/store/state'
+import { state } from '../utils/store'
 
 class NewPaperSheet {
   constructor() {

@@ -1,8 +1,13 @@
 import './_styles.scss'
-import ToggleSidebarEl from './ToggleSidebarEl'
-import ChapterPlaceholderEl from './ChapterPlaceholderEl'
+import { store } from '../../utils/store'
 
-const ChapterSidebarEl = document.getElementById('chapter-sidebar')
+import ChapterPlaceholder from './ChapterPlaceholder'
+import ToggleSidebar from './ToggleSidebar'
 
-ChapterSidebarEl.appendChild(ToggleSidebarEl)
-ChapterSidebarEl.appendChild(ChapterPlaceholderEl)
+const ChapterSidebarContainer = document.getElementById('chapter-sidebar')
+
+const ChapterPlaceholderInstance = new ChapterPlaceholder(store, ChapterSidebarContainer)
+const ToggleSidebarInstance = new ToggleSidebar(store, ChapterSidebarContainer)
+
+ChapterPlaceholderInstance.render()
+ToggleSidebarInstance.render()
