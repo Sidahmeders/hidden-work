@@ -15,8 +15,4 @@ const dispatch = {
   setSheetStyle: (payload) => store.dispatch(actionsKeys.setSheetStyle, payload),
 }
 
-const subscriber = (event, callback) => {
-  store.events.subscribe(event, callback || function () {})
-}
-
-export { dispatch, subscriber }
+export { dispatch }
