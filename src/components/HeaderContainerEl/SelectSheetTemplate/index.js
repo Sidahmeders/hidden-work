@@ -3,10 +3,10 @@ import Component from '../../../utils/lib/component'
 import { dispatch } from '../../../utils/store'
 
 class SelectSheetTemplate extends Component {
-  constructor(store, state) {
+  constructor(store, state, parent) {
     super({
       store,
-      parent: document.getElementById('sheet-reflow-container'),
+      parent,
       element: document.createElement('select'),
     })
     this.state = state
