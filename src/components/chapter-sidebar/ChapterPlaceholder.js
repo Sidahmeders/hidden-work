@@ -10,6 +10,7 @@ class ChapterPlaceholder extends Component {
   }
 
   render() {
+    this.element.innerHTML = ''
     this.element.className = 'chapter-placeholder'
 
     const InputEl = document.createElement('input')

@@ -11,6 +11,7 @@ class ToggleSidebar extends Component {
   }
 
   render() {
+    this.element.innerHTML = ''
     this.element.className = 'toggle-sidebar-btn'
 
     const IconEl = document.createElement('img')
