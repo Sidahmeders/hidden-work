@@ -1,9 +1,9 @@
 import './_styles.scss'
 import TextEditorMarkers from './TextEditorMarkers'
 
-import AddPageButton from './SheetReflowBtnsContainer/AddPageButton'
-import PageOffset from './SheetReflowBtnsContainer/PageOffset'
-import SelectSheetTemplate from './SheetReflowBtnsContainer/SelectSheetTemplate'
+import AddPageButton from './AddPageButton'
+import PageOffset from './PageOffset'
+import SelectSheetTemplate from './SelectSheetTemplate'
 
 const HeaderContainer = document.getElementById('header-container')
 const SheetReflowBtnsContainer = document.createElement('div')

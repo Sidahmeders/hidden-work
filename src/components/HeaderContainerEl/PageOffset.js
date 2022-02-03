@@ -1,6 +1,6 @@
-import Component from '../../../utils/lib/component'
-import store from '../../../utils/store/store'
-import state from '../../../utils/store/state'
+import Component from '../../utils/lib/component'
+import store from '../../utils/store/store'
+import state from '../../utils/store/state'
 
 class PageOffset extends Component {
   constructor() {

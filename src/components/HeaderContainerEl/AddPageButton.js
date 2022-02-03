@@ -1,8 +1,8 @@
-import { dispatch } from '../../../utils/store'
-import state from '../../../utils/store/state'
-import createNewPage from '../../PaperSheetEl'
-import Component from '../../../utils/lib/component'
-import store from '../../../utils/store/store'
+import { dispatch } from '../../utils/store'
+import state from '../../utils/store/state'
+import NewPaperSheet from '../NewPaperSheet'
+import Component from '../../utils/lib/component'
+import store from '../../utils/store/store'
 
 class AddPageButton extends Component {
   constructor() {
@@ -14,17 +14,20 @@ class AddPageButton extends Component {
   }
 
   render() {
+    const NewPaperSheetInstance = new NewPaperSheet()
+
     this.element.id = 'add-page-btn'
     this.element.innerText = '+'
     this.element.onclick = () => {
-      createNewPage({ styleSheet: state.selectedSheetStyle, key: state.pagesCount })
+      NewPaperSheetInstance.render(state.pagesCount + 1)
       dispatch.setPagesCount(state.pagesCount + 1)
     }
 
     let counter = 0
     while (counter++ < state.pagesCount) {
-      createNewPage({ styleSheet: state.selectedSheetStyle, key: counter })
+      NewPaperSheetInstance.render(counter)
     }
   }
 }
+
 export default AddPageButton
