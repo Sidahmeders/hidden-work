@@ -7,11 +7,13 @@ class NewPaperSheet {
 
   render(pageNumber) {
     const PaperSheet = document.createElement('div')
+    const pageinnerText = state?.sheetsScriptsMap[pageNumber] || ''
 
     PaperSheet.id = `offset-${pageNumber}`
     PaperSheet.classList.add('page', state.selectedSheetStyle)
     PaperSheet.contentEditable = true
     PaperSheet.onkeyup = (event) => savePageSheetText(event, pageNumber)
+    PaperSheet.innerText = pageinnerText
 
     const PageNumber = document.createElement('div')
     PageNumber.innerText = pageNumber
