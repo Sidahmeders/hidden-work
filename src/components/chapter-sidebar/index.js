@@ -1,6 +1,6 @@
 import './_styles.scss'
-import ToggleSidebarEl from './slices/ToggleSidebarEl'
-import ChapterPlaceholderEl from './slices/ChapterPlaceholderEl'
+import ToggleSidebarEl from './ToggleSidebarEl'
+import ChapterPlaceholderEl from './ChapterPlaceholderEl'
 
 const ChapterSidebarEl = document.getElementById('chapter-sidebar')
 

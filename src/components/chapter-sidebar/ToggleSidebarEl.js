@@ -1,4 +1,4 @@
-import LeftArrowIcon from '../../../assets/left-arrow.png'
+import LeftArrowIcon from '../../assets/left-arrow.png'
 
 const ToggleSidebarEl = document.createElement('div')
 ToggleSidebarEl.className = 'toggle-sidebar-btn'
