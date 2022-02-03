@@ -1,16 +1,15 @@
 import './template-styles/sheet-templates'
-import state from '../../../utils/store/state'
-import { dispatch } from '../../../utils/store'
 import Component from '../../../utils/lib/component'
-import store from '../../../utils/store/store'
+import { dispatch } from '../../../utils/store'
 
 class SelectSheetTemplate extends Component {
-  constructor() {
+  constructor(store, state) {
     super({
       store,
       parent: document.getElementById('sheet-reflow-container'),
       element: document.createElement('select'),
     })
+    this.state = state
   }
 
   render() {
@@ -23,7 +22,7 @@ class SelectSheetTemplate extends Component {
       const option = sheetOptions[i]
       const SheetOptionEl = document.createElement('option')
       SheetOptionEl.innerText = option
-      SheetOptionEl.selected = state.selectedSheetStyle === option ? true : false
+      SheetOptionEl.selected = this.state.selectedSheetStyle === option ? true : false
 
       this.element.appendChild(SheetOptionEl)
     }

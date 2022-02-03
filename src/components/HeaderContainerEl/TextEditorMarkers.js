@@ -1,3 +1,5 @@
+import Component from '../../utils/lib/component'
+
 // TODO: Replace the FontAwsome CDN icon links with local cached icons for offline use
 const headerActions = [
   { command: 'bold', class: 'fa-bold' },
@@ -14,21 +16,33 @@ const headerActions = [
   { command: 'HiliteColor', class: 'fa-highlighter' },
 ]
 
-const TextEditorMarkers = document.createElement('div')
-TextEditorMarkers.id = 'text-editor-markers'
+class TextEditorMarkers extends Component {
+  constructor(store, state, parent) {
+    super({
+      store,
+      parent,
+      element: document.createElement('div'),
+    })
+    this.state = state
+  }
 
-headerActions.forEach((el) => {
-  const ButtonEl = document.createElement('button')
-  ButtonEl.className = 'marker-btn'
-  ButtonEl.setAttribute('data-element', el.command)
-  ButtonEl.onclick = handleTextStyling
+  render() {
+    this.element.id = 'text-editor-markers'
 
-  const IconTagEl = document.createElement('i')
-  IconTagEl.classList.add('fa', el.class)
+    headerActions.forEach((el) => {
+      const ButtonEl = document.createElement('button')
+      ButtonEl.className = 'marker-btn'
+      ButtonEl.setAttribute('data-element', el.command)
+      ButtonEl.onclick = handleTextStyling
 
-  ButtonEl.appendChild(IconTagEl)
-  TextEditorMarkers.appendChild(ButtonEl)
-})
+      const IconTagEl = document.createElement('i')
+      IconTagEl.classList.add('fa', el.class)
+
+      ButtonEl.appendChild(IconTagEl)
+      this.element.appendChild(ButtonEl)
+    })
+  }
+}
 
 function handleTextStyling() {
   /**  FIXME:

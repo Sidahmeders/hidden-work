@@ -1,16 +1,15 @@
-import { dispatch } from '../../utils/store'
-import state from '../../utils/store/state'
-import NewPaperSheet from '../NewPaperSheet'
 import Component from '../../utils/lib/component'
-import store from '../../utils/store/store'
+import { dispatch } from '../../utils/store'
+import NewPaperSheet from '../NewPaperSheet'
 
 class AddPageButton extends Component {
-  constructor() {
+  constructor(store, state, parent) {
     super({
       store,
-      parent: document.getElementById('sheet-reflow-container'),
+      parent,
       element: document.createElement('button'),
     })
+    this.state = state
   }
 
   render() {
@@ -19,12 +18,12 @@ class AddPageButton extends Component {
     this.element.id = 'add-page-btn'
     this.element.innerText = '+'
     this.element.onclick = () => {
-      NewPaperSheetInstance.render(state.pagesCount + 1)
-      dispatch.setPagesCount(state.pagesCount + 1)
+      NewPaperSheetInstance.render(this.state.pagesCount + 1)
+      dispatch.setPagesCount(this.state.pagesCount + 1)
     }
 
     let counter = 0
-    while (counter++ < state.pagesCount) {
+    while (counter++ < this.state.pagesCount) {
       NewPaperSheetInstance.render(counter)
     }
   }
