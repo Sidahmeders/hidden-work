@@ -8,7 +8,10 @@ import PageOffset from './PageOffset'
 import SelectSheetTemplate from './SelectSheetTemplate'
 
 const HeaderContainer = document.getElementById('header-container')
+
 const TextEditorMarkersInstance = new TextEditorMarkers(Store, state, HeaderContainer)
+TextEditorMarkersInstance.render()
+
 const SheetReflowBtnsContainer = document.createElement('div')
 SheetReflowBtnsContainer.id = 'sheet-reflow-container'
 HeaderContainer.appendChild(SheetReflowBtnsContainer)
@@ -17,7 +20,6 @@ const SelectSheetTemplateInstance = new SelectSheetTemplate(Store, state, SheetR
 const PageOffsetInstance = new PageOffset(Store, state, SheetReflowBtnsContainer)
 const AddPageButtonInstance = new AddPageButton(Store, state, SheetReflowBtnsContainer)
 
-TextEditorMarkersInstance.render()
 SelectSheetTemplateInstance.render()
 PageOffsetInstance.render()
 AddPageButtonInstance.render()
