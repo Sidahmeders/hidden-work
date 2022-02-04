@@ -19,9 +19,10 @@ class NewPaperSheet {
     PageNumber.innerText = pageNumber
     PageNumber.style = `
       position: absolute;
-      left: 75%;
-      padding: 4px 8px;
-      border: 2px solid;
+      left: 50%;
+      padding: 10px;
+      border: 1.5px solid #465;
+      border-top: 0px;
       background: #fff;
     `
 
