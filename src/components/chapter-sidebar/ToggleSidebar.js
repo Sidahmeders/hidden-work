@@ -2,9 +2,8 @@ import LeftArrowIcon from '../../assets/left-arrow.png'
 import Component from '../../utils/lib/component'
 
 class ToggleSidebar extends Component {
-  constructor(store, parent) {
+  constructor(parent) {
     super({
-      store,
       parent,
       element: document.createElement('div'),
     })
@@ -19,6 +18,7 @@ class ToggleSidebar extends Component {
     IconEl.src = LeftArrowIcon
 
     this.element.appendChild(IconEl)
+    this.parent.appendChild(this.element)
   }
 }
 

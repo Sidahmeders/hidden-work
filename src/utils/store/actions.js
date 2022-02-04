@@ -20,4 +20,8 @@ function setSheetsScript(context, payload) {
   context.commit(actionsKeys.setSheetsScript, payload)
 }
 
-export default { setPagesCount, setSheetStyle, setSheetsScript }
+function setChapterMap(context, payload) {
+  context.commit(actionsKeys.setChapterMap, payload)
+}
+
+export default { setPagesCount, setSheetStyle, setSheetsScript, setChapterMap }

@@ -7,7 +7,7 @@ export default class Component {
     self.render = self.render || function () {}
 
     if (props.store instanceof Store) {
-      props.store.events.subscribe('stateChange', () => self.render())
+      props.store.events.subscribe('stateChange', (data) => self.render(data))
     }
 
     if (Object.prototype.hasOwnProperty.call(props, 'element')) {

@@ -16,4 +16,9 @@ function setSheetsScript(state, payload) {
   return state
 }
 
-export default { setPagesCount, setSheetStyle, setSheetsScript }
+function setChapterMap(state, payload) {
+  const { chapterNumber, chapterInfo } = payload
+  state[stateKeys.chapterToggleMap][chapterNumber] = chapterInfo
+}
+
+export default { setPagesCount, setSheetStyle, setSheetsScript, setChapterMap }

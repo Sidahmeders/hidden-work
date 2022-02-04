@@ -38,16 +38,12 @@
   }
 
   .chapter-placeholder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     border: 1px solid gray;
     padding: 12px 0;
     margin: 2px;
+    text-align: center;
 
     .chapter-header {
-      display: flex;
-      justify-content: center;
       font-family: cursive;
       font-size: 20px;
 
@@ -61,13 +57,44 @@
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       }
     }
+
     .chapter-name {
+      width: 85%;
       margin: 10px 10px 0 10px;
       padding: 10px 20px;
       font-size: 20px;
       border: none;
       outline: none;
       border-radius: 5px;
+    }
+  }
+
+  .new-chapter-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #465;
+    padding: 10px;
+    ::selection {
+      background: transparent;
+    }
+
+    .add-chapter-btn {
+      width: 42px;
+      height: 42px;
+      text-align: center;
+      background: white;
+      font-size: 35px;
+      border-radius: 50%;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bolder;
+      border: none;
+      transition: 0.6s ease;
+
+      &:hover {
+        cursor: pointer;
+        background: #bcf5c6;
+      }
     }
   }
 }

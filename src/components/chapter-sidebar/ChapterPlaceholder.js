@@ -1,19 +1,18 @@
-import Component from '../../utils/lib/component'
-
-class ChapterPlaceholder extends Component {
-  constructor(store, parent) {
-    super({
-      store,
-      parent,
-      element: document.createElement('div'),
-    })
+class ChapterPlaceholder {
+  constructor(parent) {
+    this.parent = parent
+    this.element = document.createElement('div')
   }
 
   render() {
     this.element.innerHTML = ''
+
+    // const chapterToggleMap = state.chapterToggleMap
+    const chapterCount = this.element.childElementCount + 1
+
+    // if (chapterToggleMap[chapterCount]) {
     this.element.className = 'chapter-placeholder'
 
-    const chapterCount = this.element.childElementCount + 1
     const ChapterHeader = document.createElement('div')
     ChapterHeader.className = 'chapter-header'
     ChapterHeader.innerText = 'Chapter' + chapterCount
@@ -29,13 +28,14 @@ class ChapterPlaceholder extends Component {
     ChapterHeader.appendChild(ChapterStartEnd)
     this.element.appendChild(ChapterHeader)
     this.element.appendChild(ChapterName)
+    this.parent.appendChild(this.element)
+    // }
   }
 }
 
 function handleChapterStartEnd(event) {
   const value = event.target.value
-
-  console.log(value, 'VAL')
+  console.log(value)
 }
 
 export default ChapterPlaceholder
