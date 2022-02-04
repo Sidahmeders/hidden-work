@@ -42,8 +42,10 @@ export default class Store {
       return false
     }
 
+    console.groupCollapsed(`ACTION: ${actionKey}`)
     self.status = 'action'
     self.actions[actionKey](self, payload)
+    console.groupEnd()
 
     return true
   }
