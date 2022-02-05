@@ -17,11 +17,7 @@ SheetMarkersBtnsContainer.id = 'text-editor-markers'
 HeaderContainer.appendChild(SheetMarkersBtnsContainer)
 HeaderContainer.appendChild(SheetReflowBtnsContainer)
 
-const TextEditorMarkersInstance = new TextEditorMarkers(store, HeaderContainer)
-const SelectSheetTemplateInstance = new SelectSheetTemplate(store, SheetReflowBtnsContainer)
-const PageOffsetInstance = new PageOffset(store, SheetReflowBtnsContainer)
-
+SelectSheetTemplate(SheetReflowBtnsContainer)
 AddPageButton(SheetReflowBtnsContainer)
-TextEditorMarkersInstance.render()
-SelectSheetTemplateInstance.render()
-PageOffsetInstance.render()
+new TextEditorMarkers(store, HeaderContainer).render()
+new PageOffset(store, SheetReflowBtnsContainer).render()

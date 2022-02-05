@@ -1,31 +1,21 @@
 import './template-styles/sheet-templates'
-import Component from '../../utils/lib/component'
 import { dispatch, state } from '../../utils/store'
 
-class SelectSheetTemplate extends Component {
-  constructor(store, parent) {
-    super({
-      store,
-      parent,
-      element: document.createElement('select'),
-    })
-  }
+function SelectSheetTemplate(parent) {
+  const element = document.createElement('select')
+  element.id = 'select-sheet-style'
+  element.onchange = dispatch.setSheetStyle
 
-  render() {
-    this.element.innerHTML = ''
-    this.element.id = 'select-sheet-style'
-    this.element.onchange = dispatch.setSheetStyle
+  const sheetOptions = ['a3Sheet', 'a4Sheet', 'usLegal', 'usLetter', 'usTablois']
 
-    const sheetOptions = ['a3Sheet', 'a4Sheet', 'usLegal', 'usLetter', 'usTablois']
+  for (let i = 0; i < sheetOptions.length; i++) {
+    const option = sheetOptions[i]
+    const SheetOptionEl = document.createElement('option')
+    SheetOptionEl.innerText = option
+    SheetOptionEl.selected = state.selectedSheetStyle === option ? true : false
 
-    for (let i = 0; i < sheetOptions.length; i++) {
-      const option = sheetOptions[i]
-      const SheetOptionEl = document.createElement('option')
-      SheetOptionEl.innerText = option
-      SheetOptionEl.selected = state.selectedSheetStyle === option ? true : false
-
-      this.element.appendChild(SheetOptionEl)
-    }
+    element.appendChild(SheetOptionEl)
+    parent.appendChild(element)
   }
 }
 
