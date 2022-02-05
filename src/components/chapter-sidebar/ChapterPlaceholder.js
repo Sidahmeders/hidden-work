@@ -1,31 +1,24 @@
-class ChapterPlaceholder {
-  constructor(parent) {
-    this.parent = parent
-    this.element = document.createElement('div')
-  }
+function ChapterPlaceholder(chapterCount = 0) {
+  const element = document.createElement('div')
+  element.className = 'chapter-placeholder'
 
-  render() {
-    this.element.className = 'chapter-placeholder'
+  const ChapterHeader = document.createElement('div')
+  ChapterHeader.className = 'chapter-header'
+  ChapterHeader.innerText = 'Chapter' + chapterCount
 
-    // const chapterToggleMap = state.chapterToggleMap
-    const chapterCount = this.parent.childElementCount - 1
-    const ChapterHeader = document.createElement('div')
-    ChapterHeader.className = 'chapter-header'
-    ChapterHeader.innerText = 'Chapter' + chapterCount
+  const ChapterStartEnd = document.createElement('input')
+  ChapterStartEnd.className = 'chapter-start-end'
+  ChapterStartEnd.placeholder = '.../...'
+  ChapterStartEnd.onchange = handleChapterStartEnd
 
-    const ChapterStartEnd = document.createElement('input')
-    ChapterStartEnd.className = 'chapter-start-end'
-    ChapterStartEnd.placeholder = '.../...'
-    ChapterStartEnd.onchange = handleChapterStartEnd
+  const ChapterName = document.createElement('input')
+  ChapterName.className = 'chapter-name'
 
-    const ChapterName = document.createElement('input')
-    ChapterName.className = 'chapter-name'
+  ChapterHeader.appendChild(ChapterStartEnd)
+  element.appendChild(ChapterHeader)
+  element.appendChild(ChapterName)
 
-    ChapterHeader.appendChild(ChapterStartEnd)
-    this.element.appendChild(ChapterHeader)
-    this.element.appendChild(ChapterName)
-    this.parent.appendChild(this.element)
-  }
+  return element
 }
 
 function handleChapterStartEnd(event) {

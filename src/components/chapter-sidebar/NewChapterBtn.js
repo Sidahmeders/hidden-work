@@ -1,32 +1,23 @@
 import { dispatch } from '../../utils/store'
-
 import ChapterPlaceholder from './ChapterPlaceholder'
 
-class NewChapterBtn {
-  constructor(parent) {
-    this.parent = parent
-    this.element = document.createElement('div')
-  }
+function NewChapterBtn(parent) {
+  const element = document.createElement('div')
+  element.className = 'new-chapter-btn-container'
 
-  render(state) {
-    this.element.className = 'new-chapter-btn-container'
+  const AddChapterBtn = document.createElement('div')
+  AddChapterBtn.className = 'add-chapter-btn'
+  AddChapterBtn.innerText = '+'
+  AddChapterBtn.onclick = (event) => handleBtnClick(event, parent)
 
-    const chapterToggleMap = state.chapterToggleMap
-    const AddChapterBtn = document.createElement('div')
-    AddChapterBtn.className = 'add-chapter-btn'
-    AddChapterBtn.innerText = '+'
-    AddChapterBtn.onclick = (event) => handleBtnClick(event, chapterToggleMap, this.parent, state)
-
-    this.element.appendChild(AddChapterBtn)
-    this.parent.appendChild(this.element)
-  }
+  element.appendChild(AddChapterBtn)
+  parent.appendChild(element)
 }
 
-function handleBtnClick(event, chapterToggleMap, parent, state) {
-  const chapterCount = document.getElementsByClassName('chapter-placeholder').length
+function handleBtnClick(event, parent) {
+  const chapterCount = document.getElementsByClassName('chapter-placeholder').length + 1
 
-  const ChapterPlaceholderInstance = new ChapterPlaceholder(parent)
-  ChapterPlaceholderInstance.render(state)
+  parent.appendChild(ChapterPlaceholder(chapterCount))
 
   dispatch.setChapterMap({ chapterNumber: chapterCount, chapterInfo: 'XXXX' })
 }

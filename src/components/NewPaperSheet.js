@@ -1,23 +1,18 @@
 import { dispatch, state } from '../utils/store'
 
-class NewPaperSheet {
-  constructor() {
-    this.element = document.getElementById('sheets-container')
-  }
+function NewPaperSheet(parent, pageNumber) {
+  const PaperSheet = document.createElement('div')
+  const pageinnerText = state?.sheetsScriptsMap[pageNumber] || ''
 
-  render(pageNumber) {
-    const PaperSheet = document.createElement('div')
-    const pageinnerText = state?.sheetsScriptsMap[pageNumber] || ''
+  PaperSheet.id = `offset-${pageNumber}`
+  PaperSheet.classList.add('page', state.selectedSheetStyle)
+  PaperSheet.contentEditable = true
+  PaperSheet.oninput = (event) => savePageSheetText(event, pageNumber)
+  PaperSheet.innerText = pageinnerText
 
-    PaperSheet.id = `offset-${pageNumber}`
-    PaperSheet.classList.add('page', state.selectedSheetStyle)
-    PaperSheet.contentEditable = true
-    PaperSheet.oninput = (event) => savePageSheetText(event, pageNumber)
-    PaperSheet.innerText = pageinnerText
-
-    const PageNumber = document.createElement('div')
-    PageNumber.innerText = pageNumber
-    PageNumber.style = `
+  const PageNumber = document.createElement('div')
+  PageNumber.innerText = pageNumber
+  PageNumber.style = `
       position: absolute;
       left: 50%;
       padding: 10px;
@@ -26,9 +21,8 @@ class NewPaperSheet {
       background: #fff;
     `
 
-    this.element.appendChild(PageNumber)
-    this.element.appendChild(PaperSheet)
-  }
+  parent.appendChild(PageNumber)
+  parent.appendChild(PaperSheet)
 }
 
 function savePageSheetText(event, pageNumber) {
@@ -42,10 +36,10 @@ function savePageSheetText(event, pageNumber) {
 document.addEventListener('DOMContentLoaded', renderExistingSheets)
 
 function renderExistingSheets() {
-  const NewPaperSheetInstance = new NewPaperSheet()
+  const SheetsContainer = document.getElementById('sheets-container')
   let counter = 0
   while (counter++ < state.pagesCount) {
-    NewPaperSheetInstance.render(counter)
+    NewPaperSheet(SheetsContainer, counter)
   }
 }
 
