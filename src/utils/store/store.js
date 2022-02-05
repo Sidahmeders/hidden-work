@@ -5,15 +5,20 @@ export default class Store {
     let self = this
 
     self.proxyTrap = {
+      get: function (state, key) {
+        if (key == 'isProxy') return true
+        const prop = state[key]
+        if (typeof prop == 'undefined') return
+        if (!prop.isProxy && typeof prop === 'object') state[key] = new Proxy(prop, self.proxyTrap)
+        return state[key]
+      },
       set: function (state, key, value) {
         if (self.status === 'mutation') {
           state[key] = value
           console.log(`stateChange: ${key} >>> ${value}`)
           self.events.publish('stateChange', self.state)
-
           self.status = 'resting'
         }
-
         return true
       },
     }
