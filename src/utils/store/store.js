@@ -6,14 +6,13 @@ export default class Store {
 
     self.proxyTrap = {
       set: function (state, key, value) {
-        state[key] = value
-        console.log(`stateChange: ${key}: ${value}`)
-        self.events.publish('stateChange', self.state)
+        if (self.status === 'mutation') {
+          state[key] = value
+          console.log(`stateChange: ${key} >>> ${value}`)
+          self.events.publish('stateChange', self.state)
 
-        if (self.status !== 'mutation') {
-          console.warn(`You should use a mutation to set ${key}`)
+          self.status = 'resting'
         }
-        self.status = 'resting'
 
         return true
       },
@@ -25,13 +24,8 @@ export default class Store {
     self.mutations = {}
     self.status = 'resting'
 
-    if (Object.prototype.hasOwnProperty.call(params, 'actions')) {
-      self.actions = params.actions
-    }
-
-    if (Object.prototype.hasOwnProperty.call(params, 'mutations')) {
-      self.mutations = params.mutations
-    }
+    if (Object.prototype.hasOwnProperty.call(params, 'actions')) self.actions = params.actions
+    if (Object.prototype.hasOwnProperty.call(params, 'mutations')) self.mutations = params.mutations
   }
 
   dispatch(actionKey, payload) {
