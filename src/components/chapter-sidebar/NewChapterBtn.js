@@ -9,7 +9,6 @@ class NewChapterBtn {
   }
 
   render(state) {
-    this.element.innerHTML = ''
     this.element.className = 'new-chapter-btn-container'
 
     const chapterToggleMap = state.chapterToggleMap

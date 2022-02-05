@@ -5,14 +5,10 @@ class ChapterPlaceholder {
   }
 
   render() {
-    this.element.innerHTML = ''
-
-    // const chapterToggleMap = state.chapterToggleMap
-    const chapterCount = this.element.childElementCount + 1
-
-    // if (chapterToggleMap[chapterCount]) {
     this.element.className = 'chapter-placeholder'
 
+    // const chapterToggleMap = state.chapterToggleMap
+    const chapterCount = this.parent.childElementCount - 1
     const ChapterHeader = document.createElement('div')
     ChapterHeader.className = 'chapter-header'
     ChapterHeader.innerText = 'Chapter' + chapterCount
@@ -29,7 +25,6 @@ class ChapterPlaceholder {
     this.element.appendChild(ChapterHeader)
     this.element.appendChild(ChapterName)
     this.parent.appendChild(this.element)
-    // }
   }
 }
 
