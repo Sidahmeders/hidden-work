@@ -13,8 +13,8 @@ const store = new Store({
 const dispatch = {
   setSheetStyle: () => store.dispatch(actionsKeys.setSheetStyle),
   setPagesCount: (payload) => store.dispatch(actionsKeys.setPagesCount, payload),
-  setSheetsScript: (payload) => store.dispatch(actionsKeys.setSheetsScript, payload),
-  setChapterMap: (payload) => store.dispatch(actionsKeys.setChapterMap, payload),
+  setSheetsMap: (payload) => store.dispatch(actionsKeys.setSheetsMap, payload),
+  setChaptersMap: (payload) => store.dispatch(actionsKeys.setChaptersMap, payload),
 }
 
 export { store, dispatch, state }

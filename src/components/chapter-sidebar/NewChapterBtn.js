@@ -19,7 +19,7 @@ function handleBtnClick(event, parent) {
 
   parent.appendChild(ChapterPlaceholder(chapterCount))
 
-  dispatch.setChapterMap({ chapterNumber: chapterCount, chapterInfo: 'XXXX' })
+  dispatch.setChaptersMap({ chapterNumber: chapterCount, chapterInfo: 'XXXX' })
 }
 
 export default NewChapterBtn

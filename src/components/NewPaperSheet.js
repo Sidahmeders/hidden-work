@@ -2,13 +2,13 @@ import { dispatch, state } from '../utils/store'
 
 function NewPaperSheet(parent, pageNumber) {
   const PaperSheet = document.createElement('div')
-  const pageinnerText = state?.sheetsScriptsMap[pageNumber] || ''
+  const pageInnerText = state?.sheetsMap[pageNumber] || ''
 
   PaperSheet.id = `offset-${pageNumber}`
   PaperSheet.classList.add('page', state.selectedSheetStyle)
   PaperSheet.contentEditable = true
   PaperSheet.oninput = (event) => savePageSheetText(event, pageNumber)
-  PaperSheet.innerText = pageinnerText
+  PaperSheet.innerText = pageInnerText
 
   const PageNumber = document.createElement('div')
   PageNumber.innerText = pageNumber
@@ -30,7 +30,7 @@ function savePageSheetText(event, pageNumber) {
   let innerText = editableDiv.innerText
   if (innerText[innerText.length - 1] === '\n') innerText = innerText.slice(0, -1)
 
-  dispatch.setSheetsScript({ pageNumber, sheetText: innerText })
+  dispatch.setSheetsMap({ pageNumber, sheetText: innerText })
 }
 
 document.addEventListener('DOMContentLoaded', renderExistingSheets)

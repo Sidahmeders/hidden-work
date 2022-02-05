@@ -1,15 +1,15 @@
 const actionsKeys = {
   setPagesCount: 'setPagesCount',
   setSheetStyle: 'setSheetStyle',
-  setSheetsScript: 'setSheetsScript',
-  setChapterMap: 'setChapterMap',
+  setSheetsMap: 'setSheetsMap',
+  setChaptersMap: 'setChaptersMap',
 }
 
 const stateKeys = {
   pagesCount: 'pagesCount',
   selectedSheetStyle: 'selectedSheetStyle',
-  sheetsScriptsMap: 'sheetsScriptsMap',
-  chapterToggleMap: 'chapterToggleMap',
+  sheetsMap: 'sheetsMap',
+  chaptersMap: 'chaptersMap',
 }
 
 export { actionsKeys, stateKeys }

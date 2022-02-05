@@ -10,15 +10,15 @@ function setSheetStyle(state, payload) {
   return state
 }
 
-function setSheetsScript(state, payload) {
+function setSheetsMap(state, payload) {
   const { pageNumber, sheetText } = payload
-  state[stateKeys.sheetsScriptsMap][pageNumber] = sheetText
+  state[stateKeys.sheetsMap][pageNumber] = sheetText
   return state
 }
 
-function setChapterMap(state, payload) {
+function setChaptersMap(state, payload) {
   const { chapterNumber, chapterInfo } = payload
-  state[stateKeys.chapterToggleMap][chapterNumber] = chapterInfo
+  state[stateKeys.chaptersMap][chapterNumber] = chapterInfo
 }
 
-export default { setPagesCount, setSheetStyle, setSheetsScript, setChapterMap }
+export default { setPagesCount, setSheetStyle, setSheetsMap, setChaptersMap }

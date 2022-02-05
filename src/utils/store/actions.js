@@ -16,12 +16,12 @@ function setSheetStyle(context) {
   context.commit(actionsKeys.setSheetStyle, selectedOption)
 }
 
-function setSheetsScript(context, payload) {
-  context.commit(actionsKeys.setSheetsScript, payload)
+function setSheetsMap(context, payload) {
+  context.commit(actionsKeys.setSheetsMap, payload)
 }
 
-function setChapterMap(context, payload) {
-  context.commit(actionsKeys.setChapterMap, payload)
+function setChaptersMap(context, payload) {
+  context.commit(actionsKeys.setChaptersMap, payload)
 }
 
-export default { setPagesCount, setSheetStyle, setSheetsScript, setChapterMap }
+export default { setPagesCount, setSheetStyle, setSheetsMap, setChaptersMap }
